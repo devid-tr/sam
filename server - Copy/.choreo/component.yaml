@@ -1,31 +1,27 @@
 # +required The configuration file schema version
 schemaVersion: 1.0
 
-# +optional Incoming connection details for the component
+# +optional Build configuration
+build:
+  # +optional Security scanning configuration
+  security:
+    scan:
+      enabled: true
+      severity: CRITICAL
+      ignoreFile: .trivyignore
+
 endpoints:
-  # +required Unique name for the endpoint.
-  # This name will be used when generating the managed API
   - name: chat-service
-    # +optional Display name for the endpoint.
     displayName: Chat Service API
-    # +required Service section has the user service endpoint details
     service:
-      # +optional Base path of the API that gets exposed via the endpoint.
-      # This is mandatory if the endpoint type is set to REST or GraphQL.
       basePath: /api
-      # +required Numeric port value that gets exposed via the endpoint
       port: 8888
-    # +required Type of traffic that the endpoint is accepting.
-    # Allowed values: REST, GraphQL, GRPC, TCP, UDP.
     type: REST
-    # +optional Network level visibilities of the endpoint.
     networkVisibilities: 
       - Public
       - Organization
 
-# +optional Outgoing connection details for the component.
 dependencies:
-  # +optional Defines environment variables needed for external services
   env:
     - name: PREM_API_KEY
       required: true
