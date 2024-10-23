@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@langchain/community": "^0.3.7",
+    "@langchain/groq": "^0.1.2",
+    "@netlify/functions": "^2.8.2",
+    "@premai/prem-sdk": "^0.3.73",
+    "@types/express": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1"
+  },
+  "type": "module"
+}
